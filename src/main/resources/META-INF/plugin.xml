@@ -15,4 +15,23 @@
     <applicationListeners>
         <listener class="com.github.thenoveltyseeker.codecapsule.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.inlayProvider
+                language="kotlin"
+                implementationClass="com.github.thenoveltyseeker.codecapsule.ViewContextProvider"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <annotator language="kotlin" implementationClass="com.github.thenoveltyseeker.codecapsule.CustomCommentAnnotator"/>
+    </extensions>
+
+    <actions>
+        <action class="com.github.thenoveltyseeker.codecapsule.AddContextAction"
+                id="codecapsule.AddContextAction"
+                text="Add Context to Code"
+                description="Attach metadata context to a function or class">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

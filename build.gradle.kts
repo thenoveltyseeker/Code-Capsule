@@ -33,6 +33,13 @@ repositories {
 dependencies {
     testImplementation(libs.junit)
 
+    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+//    implementation("org.jetbrains.intellij.plugins:codeInsight.hints:latest.release")
+    implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable") // Required for Kotlin PSI
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.json:json:20231013") // Latest version as of now
+
+
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {
         create(providers.gradleProperty("platformType"), providers.gradleProperty("platformVersion"))
